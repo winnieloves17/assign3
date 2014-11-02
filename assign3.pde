@@ -53,7 +53,7 @@ void draw(){
     case GAME_START:
           background(180);
           image(bg,0,0,640,480);
-          textSize(16);
+          textFont(loadFont("font/Square_One.ttf"),24);
           fill(0);
           text("Choose # of bombs to continue:",10,width/3-24);
           int spacing = width/9;
@@ -73,12 +73,12 @@ void draw(){
           // -----------------------------------
           break;
     case GAME_WIN:
-          textSize(18);
+          textFont(loadFont("font/Square_One.ttf"),24);
           fill(0);
           text("YOU WIN !!",width/3,30);
           break;
     case GAME_LOSE:
-          textSize(18);
+          textFont(loadFont("font/Square_One.ttf"),24);
           fill(0);
           text("YOU LOSE !!",width/3,30);
           break;
@@ -184,8 +184,8 @@ void mousePressed(){
        mouseY >= iy && mouseY <= iy+sideLength){
     
     // --------------- put you code here -------     
-    int col = (mouseX-ix)/SLOT_SIZE ;
-    int row = (mouseY-iy)/SLOT_SIZE ;
+    int col = int((mouseX-ix)/SLOT_SIZE) ;
+    int row = int((mouseY-iy)/SLOT_SIZE) ;
     if(col < nSlot && row < nSlot && mouseButton == LEFT){
       if (slot[col][row] == SLOT_BOMB ){
         showSlot(col, row, SLOT_DEAD);
